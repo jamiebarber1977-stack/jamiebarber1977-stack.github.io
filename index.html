@@ -3,10 +3,255 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CATT Codex training</title>
+    <title>Brass &amp; Steam Atelier</title>
+    <style>
+      :root {
+        color-scheme: only light;
+        font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+        background-color: #2b1b12;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: radial-gradient(circle at top, rgba(255, 211, 137, 0.18), transparent 55%),
+          linear-gradient(135deg, #2b1b12 0%, #3a2417 45%, #1a110c 100%);
+        color: #f4e7d0;
+      }
+
+      header {
+        padding: 32px 8vw 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-weight: 700;
+      }
+
+      .brand .gear {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        border: 2px solid #f0c27b;
+        position: relative;
+        box-shadow: inset 0 0 0 6px rgba(240, 194, 123, 0.3);
+      }
+
+      .brand .gear::before,
+      .brand .gear::after {
+        content: "";
+        position: absolute;
+        inset: -6px;
+        border-radius: 50%;
+        border: 2px dashed rgba(240, 194, 123, 0.4);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 24px;
+        font-size: 0.9rem;
+      }
+
+      .nav-links a {
+        color: #f0c27b;
+        text-decoration: none;
+      }
+
+      .nav-links a:hover {
+        color: #fff0d4;
+      }
+
+      main {
+        padding: 60px 8vw 80px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 48px;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.6rem, 4vw, 4rem);
+        margin-bottom: 16px;
+        color: #f9d79c;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        max-width: 540px;
+        color: #f1dcc3;
+      }
+
+      .hero-actions {
+        margin-top: 28px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .btn {
+        padding: 12px 24px;
+        border-radius: 999px;
+        border: 2px solid #f0c27b;
+        text-decoration: none;
+        color: #f0c27b;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        transition: all 0.2s ease;
+      }
+
+      .btn.primary {
+        background: #f0c27b;
+        color: #2b1b12;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+      }
+
+      .panel {
+        background: rgba(37, 24, 16, 0.85);
+        border: 1px solid rgba(240, 194, 123, 0.35);
+        border-radius: 24px;
+        padding: 28px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .panel::before {
+        content: "";
+        position: absolute;
+        inset: 16px;
+        border-radius: 16px;
+        border: 1px dashed rgba(240, 194, 123, 0.35);
+        pointer-events: none;
+      }
+
+      .dial {
+        display: grid;
+        gap: 18px;
+      }
+
+      .dial-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .dial-item span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        border: 1px solid #f0c27b;
+        color: #f0c27b;
+        font-weight: 700;
+      }
+
+      .dial-item h3 {
+        margin: 0 0 4px;
+        color: #f9d79c;
+      }
+
+      .fog {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, rgba(255, 231, 189, 0.08), transparent 60%);
+        opacity: 0.6;
+        pointer-events: none;
+      }
+
+      footer {
+        padding: 24px 8vw 40px;
+        font-size: 0.85rem;
+        color: rgba(241, 220, 195, 0.7);
+      }
+
+      @media (max-width: 720px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1>CATT Codex training</h1>
-    <p>Placeholder text goes here.</p>
+    <header>
+      <div class="brand">
+        <div class="gear" aria-hidden="true"></div>
+        Brass &amp; Steam Atelier
+      </div>
+      <nav class="nav-links">
+        <a href="#workshop">Workshop</a>
+        <a href="#chronicles">Chronicles</a>
+        <a href="#expeditions">Expeditions</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Forge tomorrow with clockwork elegance.</h1>
+        <p>
+          Step into our brass-lit observatory where artisans, explorers, and dreamers chart bold
+          inventions. We blend steam-powered precision with velvet-lined craft to outfit your next
+          airship voyage.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#workshop">Book a Foundry Tour</a>
+          <a class="btn" href="#chronicles">Browse the Ledger</a>
+        </div>
+      </section>
+
+      <section class="panel" id="workshop">
+        <div class="fog" aria-hidden="true"></div>
+        <div class="dial">
+          <div class="dial-item">
+            <span>01</span>
+            <div>
+              <h3>Custom Automata</h3>
+              <p>Commission bespoke companions tuned with polished brass gears and sapphire cores.</p>
+            </div>
+          </div>
+          <div class="dial-item">
+            <span>02</span>
+            <div>
+              <h3>Sky Harbor Logistics</h3>
+              <p>Coordinate dirigible departures with our ledger of wind charts and fuel metrics.</p>
+            </div>
+          </div>
+          <div class="dial-item">
+            <span>03</span>
+            <div>
+              <h3>Timepiece Salvage</h3>
+              <p>Restore heirloom chronometers using our guild archive of artisanal schematics.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="chronicles">
+      &copy; 1897 Brass &amp; Steam Atelier. Crafted for discerning adventurers of the ether.
+    </footer>
   </body>
 </html>
